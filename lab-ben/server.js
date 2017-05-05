@@ -11,7 +11,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const router = express.Router();
 
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/db/consoles';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/consoles-env';
 
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI);
