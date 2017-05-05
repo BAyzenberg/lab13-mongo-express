@@ -8,7 +8,11 @@ const http = require('chai-http');
 chai.use(http);
 
 describe('Consoles Constructor test', function() {
-  let hardware = new Hardware('Wii', 'Nintendo', 2006);
+  let hardware = new Hardware({
+    name: 'Wii',
+    manufacturer: 'Nintendo',
+    releaseYear: 2006,
+  });
   it('should have a valid name', () => {
     expect(hardware.name).to.equal('Wii');
   });
@@ -17,5 +21,8 @@ describe('Consoles Constructor test', function() {
   });
   it('should have a valid releaseYear', () => {
     expect(hardware.releaseYear).to.equal(2006);
+  });
+  it('should have a valid Id', () => {
+    expect(hardware._id).to.exist;
   });
 });

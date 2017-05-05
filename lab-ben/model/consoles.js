@@ -1,12 +1,12 @@
 'use strict';
 
-const createError = require('http-errors');
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
+const consoleHardware = Schema({
+  name: {type: String, required: true},
+  manufacturer: {type: String, required: true},
+  releaseYear: {type: Number, required: true},
+});
 
-module.exports = function(name, manufacturer, releaseYear) {
-  if(!name || !manufacturer || !releaseYear) throw createError(400, 'argument(s) required');
-
-  this.name = name;
-  this.manufacturer = manufacturer;
-  this.releaseYear = releaseYear;
-};
+module.exports = mongoose.model('console', consoleHardware);
